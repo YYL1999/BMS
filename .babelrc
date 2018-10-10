@@ -1,0 +1,4 @@
+
+{
+　"plugins": ["transform-runtime", ["import", { "libraryName": "antd", "style": true }]] 
+}
