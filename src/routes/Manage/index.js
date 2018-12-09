@@ -46,6 +46,9 @@ export default class Manage extends React.Component {
       current: e.key || special,
     });
   }
+  onCollapse = (collapsed) => {
+    this.setState({ collapsed });
+  }
   render() {
     return (
       <Layout className={styles.containAll}>
@@ -57,7 +60,7 @@ export default class Manage extends React.Component {
         >
           {this.state.theme === 'light' ? <a href="https://github.com/YYL1999" target='_blank' rel='noopener noreferrer'><Icon type="github" className={styles.github} /></a> :
             <a href="https://github.com/YYL1999" target='_blank' rel='noopener noreferrer'><Icon type="github" className={styles.githubwhite} /></a> }
-          { this.state.theme === 'light' ? <span className={styles.author}>内容管理系统</span> : <span className={styles.authorwhite}>CCPC</span> }
+          { this.state.theme === 'light' ? this.state.collapsed===false?<span className={styles.author}>内容管理系统</span> :'': <span className={styles.authorwhite}>CCPC</span> }
           <Menu
             theme={this.state.theme}
             onClick={this.handleClick}

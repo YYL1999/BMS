@@ -37,6 +37,7 @@ class uploadPicture extends Component {
           status,
           url: 'http://'+BASE_QINIU_URL + '/'+(response.hash || '')
         }
+        console.log(fileItem.url)
         fileList.pop()
         fileList.push(fileItem)
          this.setState({fileList})
@@ -44,6 +45,7 @@ class uploadPicture extends Component {
          url:'http://'+BASE_QINIU_URL+'/'+(response.hash||''),
          gid:1
         }
+        console.log(body.url)
         this.setState({
           imageUrl:body.url
         })

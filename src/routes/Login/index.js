@@ -1,5 +1,6 @@
 import React, { Component} from 'react'
 import { connect } from 'dva'
+import {routerRedux} from 'dva/router'
 import { Form, Icon, Input, Button, message } from 'antd'
 import createHistory from 'history/createHashHistory';
 import 'antd/dist/antd.css'
@@ -11,30 +12,15 @@ const history = createHistory();
 class Login extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
+    const that =this
     this.props.form.validateFields((err, values) => {
-        history.push('./manage/index')
-    //   if (!err) {
-    //     fetch(url, {
-    //       method: 'POST',
-    //       headers: {
-    //         'Content-Type': 'application/json'
-    //       },
-    //       body: JSON.stringify(values)
-    //     }).then((res) => {
-    //       return res.json()
-    //     }).then((json) => {
-    //       console.log(json)
-    //       if (json.result === false) {
-    //         message.error('账户或密码错误')
-    //       }
-    //       if (json.result === true || json.result) {
-    //         // 保存后台返回的token
-    //        // sessionStorage.setItem("token",json.result)
-    //         message.success('登陆成功')
-    //         history.push('/manage/index');
-    //       }
-    //     })
-    //   }
+        // history.push('./manage/index')
+        that.props.dispatch(
+          routerRedux.push('./manage/index')
+        )
+        // that.props.dispatch({
+
+        // })
     })
   }
 
