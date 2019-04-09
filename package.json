@@ -4,7 +4,7 @@
     "dev": "PORT=8080 roadhog dev",
     "build": "roadhog build",
     "lint": "eslint --ext .js src test",
-    "precommit": "npm run lint",
+    "precommit": "lint-staged",
     "lint-staged": "lint-staged",
     "lint-staged:js": "eslint --ext .js"
   },
