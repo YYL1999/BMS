@@ -9,6 +9,12 @@
     "lint-staged:js": "eslint --ext .js"
   },
   "lint-staged": {
+    "linters": {
+      "static/js/**/*.js": [
+        "./node_modules/.bin/eslint --fix",
+        "git add"
+      ]
+    },
     "src/**/*.{js,jsx}": [
       "prettier --write",
       "git add"
