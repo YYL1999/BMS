@@ -1,26 +1,26 @@
-
+import {isAuthenticated,authenticateSuccess,logout} from "../utils/Session";
 export default {
 
-  namespace: 'apps',
+	namespace: "login",
 
-  state: {},
+	state: {},
 
-  subscriptions: {
+	subscriptions: {
     setup({ dispatch, history }) {  // eslint-disable-line
-    },
-  },
+		},
+	},
 
-  effects: {
+	effects: {
     *fetch({ payload }, { call, put }) {  // eslint-disable-line
-      yield put({ type: 'save' });
-    },
-  },
+			yield put({ type: "save" });
+		},
+	},
 
-  reducers: {
-    save(state, action) {
-      return { ...state, ...action.payload };
-    },
-  },
+	reducers: {
+		save(state, action) {
+			return { ...state, ...action.payload };
+		},
+	},
 
 };
 // namespace 是该 model 的命名空间，同时也是全局 state 上的一个属性，只能是字符串，不支持使用 . 创建多层命名空间。
