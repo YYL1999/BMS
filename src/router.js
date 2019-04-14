@@ -19,13 +19,14 @@ function RouterConfig({ history ,app}) {
 		// models: () => [
 		//   import('./models/app'),
 		// ],
-		component: () => import("./routes/Login"),
+		component: () => import("./routes/Manage"),
 	});
 	return (
 		<Router history={history}>
 			<Switch>
-				<Route path="/login" component={Login} />
-				<PrivateRoute path='/'  component={IndexPage}/>
+				<Route path="/"   exact component={IndexPage} />
+				<Route path="/manage" component={Login} />
+				{/* <PrivateRoute path='/'  component={IndexPage}/> */}
 			</Switch>
 		</Router>
 	);
