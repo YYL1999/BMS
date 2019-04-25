@@ -2,9 +2,8 @@ import React from "react";
 import { Route } from "react-router-dom";
 import { Layout } from "antd";
 import "./content.less";
-import Menu from "./upLoadPicture/index";
-import announcement from "./publish/announcement";
-import "antd/dist/antd.css";
+import Menu from "../../upLoadPicture";
+import announcement from "../../publish/announcement";
 
 const { Content } = Layout;
 export default class Contents extends React.Component {

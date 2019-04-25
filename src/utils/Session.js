@@ -1,7 +1,7 @@
 const LOGIN_COOKIE_NAME = "sessionId";
 
 export function isAuthenticated () {
-	return _getCookie(LOGIN_COOKIE_NAME);
+	return _getCookie();
 }
 
 export function authenticateSuccess (token) {
@@ -12,25 +12,14 @@ export function logout () {
 	_setCookie(LOGIN_COOKIE_NAME, "", 0);
 }
 
-function _getCookie (name) {
-	let start, end;
-	if (document.cookie.length > 0) {
-		start = document.cookie.indexOf(name + "=");
-		if (start !== -1) {
-			start = start + name.length + 1;
-			end = document.cookie.indexOf(";", start);
-			if (end === -1) {
-				end = document.cookie.length;
-			}
-			return unescape(document.cookie.substring(start, end));
-		}
+function _getCookie () {
+	if(localStorage.token){
+	 return true;
+	}else{
+	 return false;
 	}
-	return "";
 }
 
-function _setCookie (name, value, expire) {
-	let date = new Date();
-	date.setDate(date.getDate() + expire);
-	document.cookie = name + "=" + escape(value) + "; path=/" +
-    (expire ? ";expires=" + date.toGMTString() : "");
+export function _setCookie (token) {
+	localStorage.setItem("token",token);
 }

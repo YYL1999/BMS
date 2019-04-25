@@ -9,7 +9,7 @@ class  Loading2 extends React.Component{
 			loop: true,
 			prerender: true,
 			autoplay: true,
-			animationData:require("./data.json")
+			animationData:require("../data.json")
 		};
 		this.anim = bodymovin.loadAnimation(animData);
 		this.anim.setSpeed(1.42);

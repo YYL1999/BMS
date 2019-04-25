@@ -2,8 +2,6 @@ import React from "react";
 import { Menu, Icon, Layout } from "antd";
 import { Link } from "react-router-dom";
 import "./header.less";
-import "antd/dist/antd.css";
-
 const SubMenu = Menu.SubMenu;
 const { Header } = Layout;
 export default class Top extends React.Component {

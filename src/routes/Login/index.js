@@ -1,13 +1,13 @@
 import React from "react";
 import BGParticle from "../../utils/BGParticle";
 import { notification } from "antd";
-import "./style.css";
+import "./css/style.css";
 
-import Loading2 from "./login2";
+import Loading2 from "./login/login2";
 import {preloadingImages} from "../../utils/utils";
 import "animate.css";
-import LoginForm from "./login";
-import RegisterForm from "./register";
+import LoginForm from "./login/login";
+import RegisterForm from "./register/register";
 
 const url = "https://github.com/zhangZhiHao1996/image-store/blob/master/react-admin-master/bg1.jpg?raw=true";
 const imgs = [

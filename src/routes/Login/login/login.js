@@ -1,10 +1,10 @@
 import React , {Component} from "react";
 import { connect } from "dva";
 import { Form, Input, Row, Col,message } from "antd";
-import { randomNum, calculateWidth } from "../../utils/utils";
-import PromptBox from "./test";
+import { randomNum, calculateWidth } from "../../../utils/utils";
+import PromptBox from "../test";
 import { routerRedux } from "dva/router";
-
+import {_setCookie} from "../../../utils/Session";
 @Form.create()
 class Login extends Component {
   state = {
@@ -49,32 +49,6 @@ class Login extends Component {
   		code
   	});
   }
-   // 2、节流函数体
-   throttle=(fn)=> {
-   	// 4、通过闭包保存一个标记
-   	let canRun = true;
-    
-   	return function() {
-   		// 5、在函数开头判断标志是否为 true，不为 true 则中断函数
-   		if(!canRun) {
-   			return;
-   		}
-   		// 6、将 canRun 设置为 false，防止执行之前再被执行
-   		canRun = false;
-      
-   		// 7、定时器
-   		setTimeout( () => {
-   			fn.call(this, arguments);
-   			// 8、执行完事件（比如调用完接口）之后，重新将这个标志设置为 true
-   			canRun = true;
-   		}, 6000);
-   	};
-   }
-
-	// 3、需要节流的事件
-   getData(){
-   	console.log("hello"); 
-   }
   loginSubmit = (e) => {
   	e.preventDefault();
   	this.setState({
@@ -91,6 +65,20 @@ class Login extends Component {
   					}
   				});
   				return;
+  			}
+  			if(values.mobile!=="admin"){
+  				message.error("手机号码错误");
+  			}else{
+  				if(values.password!=="admin"){
+  					message.error("密码错误");
+  				}else{
+  					_setCookie("xasxasxasxasdxsaxsadxs");
+  					this.props.dispatch(
+  						routerRedux.push({
+  							pathname:"/manage"
+  						})
+  					);
+  				}
   			}
   		}
   	});

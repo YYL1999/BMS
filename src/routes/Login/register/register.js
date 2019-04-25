@@ -1,8 +1,8 @@
 import React from "react";
 import { Form, Input, message,Button } from "antd";
 import {connect} from "dva";
-import { calculateWidth } from "../../utils/utils";
-import PromptBox from "./test";
+import { calculateWidth } from "../../../utils/utils";
+import PromptBox from "../test";
 
  @Form.create()
 class RegisterForm extends React.Component {

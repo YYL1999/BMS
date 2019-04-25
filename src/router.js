@@ -13,20 +13,24 @@ function RouterConfig({ history ,app}) {
 		//   import('./models/app'),
 		// ],
 		component: () => import("./routes/IndexPage"),
-  });
-  const Login = dynamic({
+	});
+	const Manage= dynamic({
 		app,
 		// models: () => [
 		//   import('./models/app'),
 		// ],
-		component: () => import("./routes/Manage"),
+		component: () => import("./routes/Manage/main"),
+	});
+	const Login=dynamic({
+		app,
+		component:()=>import ("./routes/Login")
 	});
 	return (
 		<Router history={history}>
 			<Switch>
 				<Route path="/"   exact component={IndexPage} />
-				<Route path="/manage" component={Login} />
-				{/* <PrivateRoute path='/'  component={IndexPage}/> */}
+				<Route path="/login" component={Login} />
+				<PrivateRoute path='/manage'  component={Manage}/>
 			</Switch>
 		</Router>
 	);
